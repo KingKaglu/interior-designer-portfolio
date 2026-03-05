@@ -311,16 +311,9 @@ export default function App() {
     event.preventDefault();
 
     const values = normalizeForm(formData);
-    if (!values.name || !values.email || !values.type || !values.message) {
+    if (!values.name || !values.email) {
       setSubmitState("error");
-      setErrorText(t("contact.error", { defaultValue: "Please fill all fields." }));
-      return;
-    }
-
-    if (values.website) {
-      setSubmitState("success");
-      setFormData(INITIAL_FORM);
-      setErrorText("");
+      setErrorText(t("contact.requiredError", { defaultValue: "Please fill at least name and email." }));
       return;
     }
 
@@ -330,15 +323,15 @@ export default function App() {
     const payload = new FormData();
     payload.append("name", values.name);
     payload.append("email", values.email);
-    payload.append("project_type", values.type);
-    payload.append("message", values.message);
+    payload.append("project_type", values.type || "Not specified");
+    payload.append("message", values.message || "Client requested contact.");
     payload.append("_subject", "New interior design inquiry");
     payload.append("_captcha", "false");
     payload.append("_template", "table");
     imageFiles.forEach((file) => payload.append("attachment", file, file.name));
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 12000);
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/gzirishviligiorgiwork@gmail.com", {
@@ -348,15 +341,28 @@ export default function App() {
         signal: controller.signal,
       });
 
-      const data = await response.json();
-      if (response.ok && data?.success === "true") {
+      const rawText = await response.text();
+      let data = null;
+      try {
+        data = rawText ? JSON.parse(rawText) : null;
+      } catch {
+        data = null;
+      }
+
+      const isSuccess = data?.success === true || data?.success === "true";
+      if (response.ok && isSuccess) {
         setSubmitState("success");
         setFormData(INITIAL_FORM);
         setImageFiles([]);
         if (fileInputRef.current) fileInputRef.current.value = "";
       } else {
         setSubmitState("error");
-        setErrorText(data?.message || t("contact.error", { defaultValue: "Failed to send message. Please try again." }));
+        setErrorText(
+          data?.message ||
+            t("contact.error", {
+              defaultValue: "Failed to send message. Please try again.",
+            })
+        );
       }
     } catch {
       setSubmitState("error");
@@ -735,7 +741,6 @@ export default function App() {
                   onChange={onFieldChange}
                   placeholder={t("contact.placeholderType")}
                   maxLength={80}
-                  required
                 />
               </label>
 
@@ -748,7 +753,6 @@ export default function App() {
                   onChange={onFieldChange}
                   placeholder={t("contact.placeholderMessage")}
                   maxLength={1200}
-                  required
                 />
               </label>
 

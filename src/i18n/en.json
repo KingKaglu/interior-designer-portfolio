@@ -213,6 +213,7 @@
     "submit": "Send Inquiry",
     "sending": "Sending...",
     "success": "Thank you. Your message was sent successfully.",
+    "requiredError": "Please fill at least name and email.",
     "error": "Failed to send message. Please try again."
   },
   "pricing": {
