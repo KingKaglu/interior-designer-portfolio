@@ -93,6 +93,10 @@ export default function App() {
   const whatsappHref = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(
     t("quickContact.whatsappPrefill", { defaultValue: "Hello, I want to book an interior design consultation." })
   )}`;
+  const nextUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}${window.location.pathname}?sent=1#contact`
+      : "";
 
   const navItems = useMemo(
     () => [
@@ -153,6 +157,17 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = i18n.resolvedLanguage || "en";
   }, [i18n.resolvedLanguage]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sent") !== "1") return;
+
+    setSubmitState("success");
+    params.delete("sent");
+    const query = params.toString();
+    const next = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash || ""}`;
+    window.history.replaceState({}, "", next);
+  }, []);
 
   useEffect(() => {
     const onEscape = (event) => {
@@ -319,57 +334,7 @@ export default function App() {
 
     setSubmitState("loading");
     setErrorText("");
-
-    const payload = new FormData();
-    payload.append("name", values.name);
-    payload.append("email", values.email);
-    payload.append("project_type", values.type || "Not specified");
-    payload.append("message", values.message || "Client requested contact.");
-    payload.append("_subject", "New interior design inquiry");
-    payload.append("_captcha", "false");
-    payload.append("_template", "table");
-    imageFiles.forEach((file) => payload.append("attachment", file, file.name));
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000);
-
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/gzirishviligiorgiwork@gmail.com", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: payload,
-        signal: controller.signal,
-      });
-
-      const rawText = await response.text();
-      let data = null;
-      try {
-        data = rawText ? JSON.parse(rawText) : null;
-      } catch {
-        data = null;
-      }
-
-      const isSuccess = data?.success === true || data?.success === "true";
-      if (response.ok && isSuccess) {
-        setSubmitState("success");
-        setFormData(INITIAL_FORM);
-        setImageFiles([]);
-        if (fileInputRef.current) fileInputRef.current.value = "";
-      } else {
-        setSubmitState("error");
-        setErrorText(
-          data?.message ||
-            t("contact.error", {
-              defaultValue: "Failed to send message. Please try again.",
-            })
-        );
-      }
-    } catch {
-      setSubmitState("error");
-      setErrorText(t("contact.error", { defaultValue: "Failed to send message. Please try again." }));
-    } finally {
-      clearTimeout(timeoutId);
-    }
+    event.currentTarget.submit();
   };
 
   return (
@@ -693,7 +658,18 @@ export default function App() {
               </ul>
             </div>
 
-            <form className="contact-form" onSubmit={handleSubmit} noValidate>
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+              action="https://formsubmit.co/gzirishviligiorgiwork@gmail.com"
+              method="POST"
+              encType="multipart/form-data"
+              noValidate
+            >
+              <input type="hidden" name="_subject" value="New interior design inquiry" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value={nextUrl} />
               <label className="honeypot" aria-hidden="true">
                 Website
                 <input
@@ -760,7 +736,7 @@ export default function App() {
                 {t("contact.formImages", { defaultValue: "Upload home images (optional)" })}
                 <input
                   type="file"
-                  name="images"
+                  name="attachment"
                   ref={fileInputRef}
                   accept="image/*"
                   multiple
