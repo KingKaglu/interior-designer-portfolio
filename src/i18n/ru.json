@@ -1,0 +1,176 @@
+{
+  "brand": "MAriam Stuido",
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "process": "Process",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "book": "Book Consultation",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "eyebrow": "Interior Design",
+    "title": "Fresh design vision for modern interiors.",
+    "copy": "I am a beginner interior designer focused on calm layouts, soft palettes, and practical spaces that feel personal and functional.",
+    "ctaPrimary": "View Portfolio",
+    "ctaSecondary": "Start Your Project",
+    "designerRole": "Beginner Interior Designer",
+    "designerName": "Mariam Adamashvili",
+    "designerText": "Age 22. Building strong skills through recent academy training and design software practice."
+  },
+  "stats": [
+    { "value": "22", "label": "Age" },
+    { "value": "Beginner", "label": "Experience Level" },
+    { "value": "2", "label": "Completed Courses" },
+    { "value": "3", "label": "Main Programs" }
+  ],
+  "about": {
+    "eyebrow": "About",
+    "title": "Mariam Adamashvili",
+    "text": "I am at the beginning of my interior design career and focused on growing through real projects, clear process, and continuous learning.",
+    "note": "My current direction combines soft contemporary aesthetics with practical planning for everyday living.",
+    "profileTitle": "Profile & Education",
+    "fullNameLabel": "Full Name",
+    "fullNameValue": "Mariam Adamashvili",
+    "ageLabel": "Age",
+    "ageValue": "22",
+    "experienceLabel": "Level",
+    "experienceValue": "Beginner Interior Designer",
+    "educationTitle": "Education",
+    "education": [
+      {
+        "school": "Pep's School",
+        "date": "02.02.2026 - 10.05.2026"
+      },
+      {
+        "school": "IT Academy Step",
+        "date": "10.11.2023 - 15.04.2024"
+      }
+    ],
+    "programsTitle": "Programs",
+    "programs": ["Revit", "3ds Max", "Archicad"]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Interior services for small and medium residential projects.",
+    "text": "Current services are focused on concept development, visual planning, and practical space improvements.",
+    "items": [
+      {
+        "title": "Interior Concept",
+        "text": "Mood, color, and style direction tailored to your apartment or house."
+      },
+      {
+        "title": "Space Planning",
+        "text": "Functional zoning and furniture placement for better daily comfort."
+      },
+      {
+        "title": "3D Visualization",
+        "text": "Basic visual previews to help you understand the design before execution."
+      },
+      {
+        "title": "Material Selection",
+        "text": "Guidance on finishes, tones, and combinations for a cohesive look."
+      },
+      {
+        "title": "Furniture Styling",
+        "text": "Recommendations for furniture, decor, and accessory balance."
+      },
+      {
+        "title": "Design Support",
+        "text": "Ongoing communication and support during renovation decisions."
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "Practice project visuals",
+    "text": "A single apartment concept shown from multiple room angles.",
+    "projects": [
+      { "title": "Blush Bedroom - Window View", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
+      { "title": "Blush Bedroom - Main Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
+      { "title": "Entry Hall - Mirror Console", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
+      { "title": "Bedroom - Soft Minimal Side", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
+      { "title": "Bedroom - Wardrobe Elevation", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
+      { "title": "Living Room - TV Feature Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" }
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "Simple and clear project steps.",
+    "text": "A beginner-friendly workflow with close communication and transparent decisions.",
+    "items": [
+      {
+        "step": "01",
+        "title": "Intro Call",
+        "text": "Understand goals, budget, and space type."
+      },
+      {
+        "step": "02",
+        "title": "Concept Draft",
+        "text": "Create early layout and design direction."
+      },
+      {
+        "step": "03",
+        "title": "Visual Update",
+        "text": "Share 3D previews and revise details."
+      },
+      {
+        "step": "04",
+        "title": "Final Guidance",
+        "text": "Deliver final selections and implementation notes."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "Client feedback",
+    "text": "Early project feedback from collaboration and study-based work.",
+    "items": [
+      {
+        "quote": "Clear communication and nice taste. The room became more organized and warm.",
+        "name": "Nina B.",
+        "role": "Apartment Client"
+      },
+      {
+        "quote": "Strong effort and good attention to details. Revisions were handled quickly.",
+        "name": "Tatia M.",
+        "role": "Private Client"
+      },
+      {
+        "quote": "Great start for a young designer. The final concept looked balanced and elegant.",
+        "name": "Lika C.",
+        "role": "Mentor Feedback"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Send your project details.",
+    "text": "Share your space goals and I will get back to you with next steps.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "emailValue": "gzirishviligiorgiwork@gmail.com",
+    "phoneValue": "+995 555 23 88 14",
+    "locationValue": "Tbilisi, Georgia",
+    "formName": "Full Name",
+    "formEmail": "Email",
+    "formType": "Project Type",
+    "formMessage": "Message",
+    "placeholderName": "Your name",
+    "placeholderEmail": "you@email.com",
+    "placeholderType": "Apartment, room redesign, concept...",
+    "placeholderMessage": "Tell me about your project",
+    "submit": "Send Inquiry",
+    "sending": "Sending...",
+    "success": "Thank you. Your message was sent successfully.",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "left": "MAriam Stuido",
+    "right": "2026. All rights reserved."
+  }
+}
