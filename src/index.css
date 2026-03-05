@@ -610,12 +610,14 @@ img {
 :lang(ka) .section-title {
   font-family: "Noto Serif Georgian", "Cormorant Garamond", serif;
   letter-spacing: 0;
-  line-height: 1.08;
+  line-height: 1.18;
+  font-weight: 600;
 }
 
 :lang(ka) .hero-title {
-  font-size: clamp(2rem, 5.2vw, 4.2rem);
-  max-width: 12ch;
+  font-size: clamp(1.85rem, 4.8vw, 3.95rem);
+  max-width: 16ch;
+  text-wrap: balance;
 }
 
 .about-grid {
