@@ -1,45 +1,57 @@
 {
   "brand": "MAriam Stuido",
   "nav": {
-    "about": "About",
-    "services": "Services",
-    "portfolio": "Portfolio",
-    "process": "Process",
-    "testimonials": "Testimonials",
-    "contact": "Contact",
-    "book": "Book Consultation",
-    "menu": "Menu",
-    "close": "Close"
+    "about": "Обо мне",
+    "services": "Услуги",
+    "portfolio": "Портфолио",
+    "process": "Процесс",
+    "testimonials": "Отзывы",
+    "contact": "Контакты",
+    "book": "Записаться на консультацию",
+    "menu": "Меню",
+    "close": "Закрыть"
   },
   "hero": {
-    "eyebrow": "Interior Design",
-    "title": "Fresh design vision for modern interiors.",
-    "copy": "I am a beginner interior designer focused on calm layouts, soft palettes, and practical spaces that feel personal and functional.",
-    "ctaPrimary": "View Portfolio",
-    "ctaSecondary": "Start Your Project",
-    "designerRole": "Beginner Interior Designer",
-    "designerName": "Mariam Adamashvili",
-    "designerText": "Age 22. Building strong skills through recent academy training and design software practice."
+    "eyebrow": "Дизайн интерьера",
+    "title": "Свежий дизайн-взгляд для современных интерьеров.",
+    "copy": "Я начинающий дизайнер интерьера. Работаю с спокойной планировкой, мягкими палитрами и практичными пространствами, которые остаются личными и функциональными.",
+    "ctaPrimary": "Смотреть портфолио",
+    "ctaSecondary": "Начать проект",
+    "designerRole": "Начинающий дизайнер интерьера",
+    "designerName": "Мариам Адамашвили",
+    "designerText": "Возраст 22. Развиваю навыки через недавнее обучение и практику в профессиональных программах."
   },
   "stats": [
-    { "value": "22", "label": "Age" },
-    { "value": "Beginner", "label": "Experience Level" },
-    { "value": "2", "label": "Completed Courses" },
-    { "value": "3", "label": "Main Programs" }
+    {
+      "value": "22",
+      "label": "Возраст"
+    },
+    {
+      "value": "Начинающий",
+      "label": "Уровень опыта"
+    },
+    {
+      "value": "2",
+      "label": "Завершенных курса"
+    },
+    {
+      "value": "3",
+      "label": "Основные программы"
+    }
   ],
   "about": {
-    "eyebrow": "About",
-    "title": "Mariam Adamashvili",
-    "text": "I am at the beginning of my interior design career and focused on growing through real projects, clear process, and continuous learning.",
-    "note": "My current direction combines soft contemporary aesthetics with practical planning for everyday living.",
-    "profileTitle": "Profile & Education",
-    "fullNameLabel": "Full Name",
-    "fullNameValue": "Mariam Adamashvili",
-    "ageLabel": "Age",
+    "eyebrow": "Обо мне",
+    "title": "Мариам Адамашвили",
+    "text": "Я в начале карьеры дизайнера интерьера и развиваюсь через реальные задачи, понятный процесс и постоянное обучение.",
+    "note": "Мой текущий подход сочетает мягкую современную эстетику и практичное планирование для повседневной жизни.",
+    "profileTitle": "Профиль и образование",
+    "fullNameLabel": "Полное имя",
+    "fullNameValue": "Мариам Адамашвили",
+    "ageLabel": "Возраст",
     "ageValue": "22",
-    "experienceLabel": "Level",
-    "experienceValue": "Beginner Interior Designer",
-    "educationTitle": "Education",
+    "experienceLabel": "Уровень",
+    "experienceValue": "Начинающий дизайнер интерьера",
+    "educationTitle": "Образование",
     "education": [
       {
         "school": "Pep's School",
@@ -50,127 +62,169 @@
         "date": "10.11.2023 - 15.04.2024"
       }
     ],
-    "programsTitle": "Programs",
-    "programs": ["Revit", "3ds Max", "Archicad"]
+    "programsTitle": "Программы",
+    "programs": [
+      "Revit",
+      "3ds Max",
+      "Archicad"
+    ]
   },
   "services": {
-    "eyebrow": "Services",
-    "title": "Interior services for small and medium residential projects.",
-    "text": "Current services are focused on concept development, visual planning, and practical space improvements.",
+    "eyebrow": "Услуги",
+    "title": "Услуги интерьерного дизайна для небольших и средних жилых проектов.",
+    "text": "Сейчас услуги сфокусированы на концепции, визуальном планировании и практичном улучшении пространства.",
     "items": [
       {
-        "title": "Interior Concept",
-        "text": "Mood, color, and style direction tailored to your apartment or house."
+        "title": "Интерьерная концепция",
+        "text": "Настроение, цвет и стилистическое направление под вашу квартиру или дом."
       },
       {
-        "title": "Space Planning",
-        "text": "Functional zoning and furniture placement for better daily comfort."
+        "title": "Планировка пространства",
+        "text": "Функциональное зонирование и расстановка мебели для ежедневного комфорта."
       },
       {
-        "title": "3D Visualization",
-        "text": "Basic visual previews to help you understand the design before execution."
+        "title": "3D визуализация",
+        "text": "Базовые визуальные превью, чтобы понять дизайн до реализации."
       },
       {
-        "title": "Material Selection",
-        "text": "Guidance on finishes, tones, and combinations for a cohesive look."
+        "title": "Подбор материалов",
+        "text": "Помощь в выборе фактур, оттенков и сочетаемости материалов."
       },
       {
-        "title": "Furniture Styling",
-        "text": "Recommendations for furniture, decor, and accessory balance."
+        "title": "Мебель и стайлинг",
+        "text": "Рекомендации по мебели, декору и балансу аксессуаров."
       },
       {
-        "title": "Design Support",
-        "text": "Ongoing communication and support during renovation decisions."
+        "title": "Поддержка по проекту",
+        "text": "Постоянная коммуникация и помощь в решениях во время ремонта."
       }
     ]
   },
   "portfolio": {
-    "eyebrow": "Portfolio",
-    "title": "Practice project visuals",
-    "text": "A single apartment concept shown from multiple room angles.",
+    "eyebrow": "Портфолио",
+    "title": "Самостоятельные концепт-визуализации",
+    "text": "Эти интерьеры являются личными концепт-проектами Мариам Адамашвили, созданными на основе собственной идеи для демонстрации дизайнерских навыков.",
     "projects": [
-      { "title": "Blush Bedroom - Window View", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Blush Bedroom - Main Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Entry Hall - Mirror Console", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Bedroom - Soft Minimal Side", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Bedroom - Wardrobe Elevation", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Living Room - TV Feature Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" }
+      {
+        "title": "Гостиная пентхауса у реки",
+        "location": "Личная концепт-работа (не проект реального клиента)",
+        "type": "Демонстрация концепта"
+      },
+      {
+        "title": "Мягкая минималистичная спальня",
+        "location": "Личная концепт-работа (не проект реального клиента)",
+        "type": "Демонстрация концепта"
+      },
+      {
+        "title": "Теплая кухонная композиция",
+        "location": "Личная концепт-работа (не проект реального клиента)",
+        "type": "Демонстрация концепта"
+      },
+      {
+        "title": "Люксовая lounge и бар-зона",
+        "location": "Личная концепт-работа (не проект реального клиента)",
+        "type": "Демонстрация концепта"
+      },
+      {
+        "title": "Столовая с естественным светом",
+        "location": "Личная концепт-работа (не проект реального клиента)",
+        "type": "Демонстрация концепта"
+      },
+      {
+        "title": "Современная семейная гостиная",
+        "location": "Личная концепт-работа (не проект реального клиента)",
+        "type": "Демонстрация концепта"
+      }
     ]
   },
   "process": {
-    "eyebrow": "Process",
-    "title": "Simple and clear project steps.",
-    "text": "A beginner-friendly workflow with close communication and transparent decisions.",
+    "eyebrow": "Процесс",
+    "title": "Простые и понятные этапы работы.",
+    "text": "Удобный для начинающего рабочий процесс: тесная коммуникация и прозрачные решения.",
     "items": [
       {
         "step": "01",
-        "title": "Intro Call",
-        "text": "Understand goals, budget, and space type."
+        "title": "Первичный созвон",
+        "text": "Уточняем цели, бюджет и тип пространства."
       },
       {
         "step": "02",
-        "title": "Concept Draft",
-        "text": "Create early layout and design direction."
+        "title": "Черновая концепция",
+        "text": "Создаем начальную планировку и визуальное направление."
       },
       {
         "step": "03",
-        "title": "Visual Update",
-        "text": "Share 3D previews and revise details."
+        "title": "Визуальное обновление",
+        "text": "Показываю 3D-превью и вношу корректировки."
       },
       {
         "step": "04",
-        "title": "Final Guidance",
-        "text": "Deliver final selections and implementation notes."
+        "title": "Финальные рекомендации",
+        "text": "Передаю финальные подборы и рекомендации по реализации."
       }
     ]
   },
   "testimonials": {
-    "eyebrow": "Testimonials",
-    "title": "Client feedback",
-    "text": "Early project feedback from collaboration and study-based work.",
+    "eyebrow": "Отзывы",
+    "title": "Обратная связь клиентов",
+    "text": "Первые отзывы по проектам и учебным коллаборациям.",
     "items": [
       {
-        "quote": "Clear communication and nice taste. The room became more organized and warm.",
-        "name": "Nina B.",
-        "role": "Apartment Client"
+        "quote": "Коммуникация была четкой и со вкусом. Комната стала более организованной и уютной.",
+        "name": "Нина Б.",
+        "role": "Клиент квартиры"
       },
       {
-        "quote": "Strong effort and good attention to details. Revisions were handled quickly.",
-        "name": "Tatia M.",
-        "role": "Private Client"
+        "quote": "Сильная вовлеченность и хорошее внимание к деталям. Правки делались быстро.",
+        "name": "Татия М.",
+        "role": "Частный клиент"
       },
       {
-        "quote": "Great start for a young designer. The final concept looked balanced and elegant.",
-        "name": "Lika C.",
-        "role": "Mentor Feedback"
+        "quote": "Отличный старт для молодого дизайнера. Итоговая концепция получилась сбалансированной и элегантной.",
+        "name": "Лика Ц.",
+        "role": "Оценка ментора"
       }
     ]
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Send your project details.",
-    "text": "Share your space goals and I will get back to you with next steps.",
+    "eyebrow": "Контакты",
+    "title": "Отправьте детали вашего проекта.",
+    "text": "Расскажите о целях по пространству, и я вернусь к вам с дальнейшими шагами.",
     "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
+    "phone": "Телефон",
+    "location": "Локация",
     "emailValue": "gzirishviligiorgiwork@gmail.com",
     "phoneValue": "+995 555 23 88 14",
-    "locationValue": "Tbilisi, Georgia",
-    "formName": "Full Name",
+    "locationValue": "Тбилиси, Грузия",
+    "formName": "Полное имя",
     "formEmail": "Email",
-    "formType": "Project Type",
-    "formMessage": "Message",
-    "placeholderName": "Your name",
+    "formType": "Тип проекта",
+    "formMessage": "Сообщение",
+    "placeholderName": "Ваше имя",
     "placeholderEmail": "you@email.com",
-    "placeholderType": "Apartment, room redesign, concept...",
-    "placeholderMessage": "Tell me about your project",
-    "submit": "Send Inquiry",
-    "sending": "Sending...",
-    "success": "Thank you. Your message was sent successfully.",
-    "error": "Failed to send message. Please try again."
+    "placeholderType": "Квартира, редизайн комнаты, концепт...",
+    "placeholderMessage": "Расскажите о вашем проекте",
+    "formImages": "Загрузите фото дома (необязательно)",
+    "formImagesHelp": "До 6 фото, максимум 8MB каждое.",
+    "uploadTooMany": "Пожалуйста, загрузите не более 6 фото.",
+    "uploadTypeError": "Разрешены только файлы изображений.",
+    "uploadSizeError": "Каждое изображение должно быть меньше 8MB.",
+    "submit": "Отправить",
+    "sending": "Отправка...",
+    "success": "Спасибо. Ваше сообщение успешно отправлено.",
+    "error": "Не удалось отправить сообщение. Попробуйте еще раз."
+  },
+  "pricing": {
+    "rate": "Цена: от $25 за м³"
+  },
+  "quickContact": {
+    "whatsapp": "WhatsApp",
+    "call": "Позвонить",
+    "whatsappPrefill": "Здравствуйте, хочу записаться на консультацию по дизайну интерьера."
   },
   "footer": {
     "left": "MAriam Stuido",
-    "right": "2026. All rights reserved."
+    "right": "2026. Все права защищены.",
+    "source": "Фото проектов: Unsplash"
   }
 }

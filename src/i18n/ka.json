@@ -1,45 +1,57 @@
 {
   "brand": "MAriam Stuido",
   "nav": {
-    "about": "About",
-    "services": "Services",
-    "portfolio": "Portfolio",
-    "process": "Process",
-    "testimonials": "Testimonials",
-    "contact": "Contact",
-    "book": "Book Consultation",
-    "menu": "Menu",
-    "close": "Close"
+    "about": "შესახებ",
+    "services": "სერვისები",
+    "portfolio": "პორტფოლიო",
+    "process": "პროცესი",
+    "testimonials": "შეფასებები",
+    "contact": "კონტაქტი",
+    "book": "კონსულტაციის დაჯავშნა",
+    "menu": "მენიუ",
+    "close": "დახურვა"
   },
   "hero": {
-    "eyebrow": "Interior Design",
-    "title": "Fresh design vision for modern interiors.",
-    "copy": "I am a beginner interior designer focused on calm layouts, soft palettes, and practical spaces that feel personal and functional.",
-    "ctaPrimary": "View Portfolio",
-    "ctaSecondary": "Start Your Project",
-    "designerRole": "Beginner Interior Designer",
-    "designerName": "Mariam Adamashvili",
-    "designerText": "Age 22. Building strong skills through recent academy training and design software practice."
+    "eyebrow": "ინტერიერის დიზაინი",
+    "title": "ახალი დიზაინის ხედვა თანამედროვე ინტერიერებისთვის.",
+    "copy": "მე ვარ დამწყები ინტერიერის დიზაინერი. ვმუშაობ მშვიდ დაგეგმარებაზე, რბილ ფერებზე და პრაქტიკულ სივრცეებზე, რომლებიც პერსონალურიცაა და ფუნქციურიც.",
+    "ctaPrimary": "პორტფოლიოს ნახვა",
+    "ctaSecondary": "პროექტის დაწყება",
+    "designerRole": "დამწყები ინტერიერის დიზაინერი",
+    "designerName": "მარიამ ადამაშვილი",
+    "designerText": "ასაკი 22. ვაძლიერებ უნარებს ახლახან დასრულებული კურსებით და პროფესიული პროგრამებით პრაქტიკით."
   },
   "stats": [
-    { "value": "22", "label": "Age" },
-    { "value": "Beginner", "label": "Experience Level" },
-    { "value": "2", "label": "Completed Courses" },
-    { "value": "3", "label": "Main Programs" }
+    {
+      "value": "22",
+      "label": "ასაკი"
+    },
+    {
+      "value": "დამწყები",
+      "label": "გამოცდილების დონე"
+    },
+    {
+      "value": "2",
+      "label": "დასრულებული კურსი"
+    },
+    {
+      "value": "3",
+      "label": "ძირითადი პროგრამა"
+    }
   ],
   "about": {
-    "eyebrow": "About",
-    "title": "Mariam Adamashvili",
-    "text": "I am at the beginning of my interior design career and focused on growing through real projects, clear process, and continuous learning.",
-    "note": "My current direction combines soft contemporary aesthetics with practical planning for everyday living.",
-    "profileTitle": "Profile & Education",
-    "fullNameLabel": "Full Name",
-    "fullNameValue": "Mariam Adamashvili",
-    "ageLabel": "Age",
+    "eyebrow": "შესახებ",
+    "title": "მარიამ ადამაშვილი",
+    "text": "ინტერიერის დიზაინის კარიერის დასაწყისში ვარ და ვვითარდები რეალური პროექტებით, გამჭვირვალე პროცესით და მუდმივი სწავლით.",
+    "note": "ჩემი მიმართულება აერთიანებს რბილ თანამედროვე ესთეტიკას და ყოველდღიური ცხოვრების პრაქტიკულ დაგეგმარებას.",
+    "profileTitle": "პროფილი და განათლება",
+    "fullNameLabel": "სრული სახელი",
+    "fullNameValue": "მარიამ ადამაშვილი",
+    "ageLabel": "ასაკი",
     "ageValue": "22",
-    "experienceLabel": "Level",
-    "experienceValue": "Beginner Interior Designer",
-    "educationTitle": "Education",
+    "experienceLabel": "დონე",
+    "experienceValue": "დამწყები ინტერიერის დიზაინერი",
+    "educationTitle": "განათლება",
     "education": [
       {
         "school": "Pep's School",
@@ -50,127 +62,169 @@
         "date": "10.11.2023 - 15.04.2024"
       }
     ],
-    "programsTitle": "Programs",
-    "programs": ["Revit", "3ds Max", "Archicad"]
+    "programsTitle": "პროგრამები",
+    "programs": [
+      "Revit",
+      "3ds Max",
+      "Archicad"
+    ]
   },
   "services": {
-    "eyebrow": "Services",
-    "title": "Interior services for small and medium residential projects.",
-    "text": "Current services are focused on concept development, visual planning, and practical space improvements.",
+    "eyebrow": "სერვისები",
+    "title": "ინტერიერის სერვისები მცირე და საშუალო საცხოვრებელი პროექტებისთვის.",
+    "text": "ამ ეტაპზე სერვისები ფოკუსირებულია კონცეფციაზე, ვიზუალურ დაგეგმვაზე და სივრცის პრაქტიკულ გაუმჯობესებაზე.",
     "items": [
       {
-        "title": "Interior Concept",
-        "text": "Mood, color, and style direction tailored to your apartment or house."
+        "title": "ინტერიერის კონცეფცია",
+        "text": "განწყობის, ფერის და სტილის მიმართულება თქვენი ბინის ან სახლისთვის."
       },
       {
-        "title": "Space Planning",
-        "text": "Functional zoning and furniture placement for better daily comfort."
+        "title": "სივრცის დაგეგმვა",
+        "text": "ფუნქციური ზონირება და ავეჯის განლაგება ყოველდღიური კომფორტისთვის."
       },
       {
-        "title": "3D Visualization",
-        "text": "Basic visual previews to help you understand the design before execution."
+        "title": "3D ვიზუალიზაცია",
+        "text": "ძირითადი ვიზუალური ხედები, რათა დიზაინი შესრულებამდე უკეთ გაიგოთ."
       },
       {
-        "title": "Material Selection",
-        "text": "Guidance on finishes, tones, and combinations for a cohesive look."
+        "title": "მასალების შერჩევა",
+        "text": "დახმარება ტექსტურების, ტონებისა და კომბინაციების შერჩევაში."
       },
       {
-        "title": "Furniture Styling",
-        "text": "Recommendations for furniture, decor, and accessory balance."
+        "title": "ავეჯი და სტაილინგი",
+        "text": "რეკომენდაციები ავეჯზე, დეკორზე და აქსესუარების ბალანსზე."
       },
       {
-        "title": "Design Support",
-        "text": "Ongoing communication and support during renovation decisions."
+        "title": "დიზაინის მხარდაჭერა",
+        "text": "მუდმივი კომუნიკაცია და მხარდაჭერა რემონტის გადაწყვეტილებებში."
       }
     ]
   },
   "portfolio": {
-    "eyebrow": "Portfolio",
-    "title": "Practice project visuals",
-    "text": "A single apartment concept shown from multiple room angles.",
+    "eyebrow": "პორტფოლიო",
+    "title": "თვითინიციირებული კონცეპტ-ვიზუალები",
+    "text": "ეს ინტერიერები მარიამ ადამაშვილის პირადი, წარმოსახვაზე დაფუძნებული კონცეპტ-პროექტებია, შექმნილი მისი დიზაინის უნარების საჩვენებლად.",
     "projects": [
-      { "title": "Blush Bedroom - Window View", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Blush Bedroom - Main Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Entry Hall - Mirror Console", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Bedroom - Soft Minimal Side", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Bedroom - Wardrobe Elevation", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Living Room - TV Feature Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" }
+      {
+        "title": "რივერსაიდის პენტჰაუსის მისაღები",
+        "location": "პირადი კონცეპტ-ნამუშევარი (რეალური კლიენტის პროექტი არ არის)",
+        "type": "კონცეპტის შოუქეისი"
+      },
+      {
+        "title": "რბილი მინიმალისტური საძინებელი",
+        "location": "პირადი კონცეპტ-ნამუშევარი (რეალური კლიენტის პროექტი არ არის)",
+        "type": "კონცეპტის შოუქეისი"
+      },
+      {
+        "title": "თბილი სამზარეულოს კომპოზიცია",
+        "location": "პირადი კონცეპტ-ნამუშევარი (რეალური კლიენტის პროექტი არ არის)",
+        "type": "კონცეპტის შოუქეისი"
+      },
+      {
+        "title": "ლუქს მისაღები და ბარის ზონა",
+        "location": "პირადი კონცეპტ-ნამუშევარი (რეალური კლიენტის პროექტი არ არის)",
+        "type": "კონცეპტის შოუქეისი"
+      },
+      {
+        "title": "ბუნებრივი განათების სასადილო",
+        "location": "პირადი კონცეპტ-ნამუშევარი (რეალური კლიენტის პროექტი არ არის)",
+        "type": "კონცეპტის შოუქეისი"
+      },
+      {
+        "title": "თანამედროვე საოჯახო მისაღები",
+        "location": "პირადი კონცეპტ-ნამუშევარი (რეალური კლიენტის პროექტი არ არის)",
+        "type": "კონცეპტის შოუქეისი"
+      }
     ]
   },
   "process": {
-    "eyebrow": "Process",
-    "title": "Simple and clear project steps.",
-    "text": "A beginner-friendly workflow with close communication and transparent decisions.",
+    "eyebrow": "პროცესი",
+    "title": "მარტივი და მკაფიო სამუშაო ეტაპები.",
+    "text": "დამწყებისთვის მეგობრული პროცესი, მჭიდრო კომუნიკაციით და გამჭვირვალე გადაწყვეტილებებით.",
     "items": [
       {
         "step": "01",
-        "title": "Intro Call",
-        "text": "Understand goals, budget, and space type."
+        "title": "საწყისი ზარი",
+        "text": "ვარკვევთ მიზნებს, ბიუჯეტს და სივრცის ტიპს."
       },
       {
         "step": "02",
-        "title": "Concept Draft",
-        "text": "Create early layout and design direction."
+        "title": "კონცეფციის მონახაზი",
+        "text": "ვქმნით პირველ დაგეგმარებას და დიზაინის მიმართულებას."
       },
       {
         "step": "03",
-        "title": "Visual Update",
-        "text": "Share 3D previews and revise details."
+        "title": "ვიზუალური განახლება",
+        "text": "ვიზიარებ 3D ხედებს და ვაკეთებ კორექტირებებს."
       },
       {
         "step": "04",
-        "title": "Final Guidance",
-        "text": "Deliver final selections and implementation notes."
+        "title": "ფინალური რეკომენდაციები",
+        "text": "გაწვდით საბოლოო შერჩევებს და შესრულების მითითებებს."
       }
     ]
   },
   "testimonials": {
-    "eyebrow": "Testimonials",
-    "title": "Client feedback",
-    "text": "Early project feedback from collaboration and study-based work.",
+    "eyebrow": "შეფასებები",
+    "title": "კლიენტების უკუკავშირი",
+    "text": "საწყისი პროექტებისა და სასწავლო თანამშრომლობების შეფასებები.",
     "items": [
       {
-        "quote": "Clear communication and nice taste. The room became more organized and warm.",
-        "name": "Nina B.",
-        "role": "Apartment Client"
+        "quote": "კომუნიკაცია იყო მკაფიო და გემოვნებიანი. ოთახი უფრო მოწესრიგებული და თბილი გახდა.",
+        "name": "ნინა ბ.",
+        "role": "ბინის კლიენტი"
       },
       {
-        "quote": "Strong effort and good attention to details. Revisions were handled quickly.",
-        "name": "Tatia M.",
-        "role": "Private Client"
+        "quote": "ძლიერი მონდომება და დეტალებზე კარგი ყურადღება. ცვლილებები სწრაფად სრულდებოდა.",
+        "name": "თათია მ.",
+        "role": "კერძო კლიენტი"
       },
       {
-        "quote": "Great start for a young designer. The final concept looked balanced and elegant.",
-        "name": "Lika C.",
-        "role": "Mentor Feedback"
+        "quote": "ძალიან კარგი სტარტი ახალგაზრდა დიზაინერისთვის. საბოლოო კონცეფცია დაბალანსებული და ელეგანტური იყო.",
+        "name": "ლიკა ც.",
+        "role": "მენტორის შეფასება"
       }
     ]
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Send your project details.",
-    "text": "Share your space goals and I will get back to you with next steps.",
-    "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
+    "eyebrow": "კონტაქტი",
+    "title": "გამოგვიგზავნეთ თქვენი პროექტის დეტალები.",
+    "text": "გაგვიზიარეთ თქვენი სივრცის მიზნები და დაგიკავშირდებით შემდეგი ნაბიჯებით.",
+    "email": "ელფოსტა",
+    "phone": "ტელეფონი",
+    "location": "ლოკაცია",
     "emailValue": "gzirishviligiorgiwork@gmail.com",
     "phoneValue": "+995 555 23 88 14",
-    "locationValue": "Tbilisi, Georgia",
-    "formName": "Full Name",
-    "formEmail": "Email",
-    "formType": "Project Type",
-    "formMessage": "Message",
-    "placeholderName": "Your name",
+    "locationValue": "თბილისი, საქართველო",
+    "formName": "სრული სახელი",
+    "formEmail": "ელფოსტა",
+    "formType": "პროექტის ტიპი",
+    "formMessage": "შეტყობინება",
+    "placeholderName": "თქვენი სახელი",
     "placeholderEmail": "you@email.com",
-    "placeholderType": "Apartment, room redesign, concept...",
-    "placeholderMessage": "Tell me about your project",
-    "submit": "Send Inquiry",
-    "sending": "Sending...",
-    "success": "Thank you. Your message was sent successfully.",
-    "error": "Failed to send message. Please try again."
+    "placeholderType": "ბინა, ოთახის გადაკეთება, კონცეფცია...",
+    "placeholderMessage": "მოგვიყევით თქვენი პროექტის შესახებ",
+    "formImages": "ატვირთეთ სახლის ფოტოები (არასავალდებულო)",
+    "formImagesHelp": "მაქს. 6 ფოტო, თითო 8MB-მდე.",
+    "uploadTooMany": "გთხოვთ ატვირთოთ მაქსიმუმ 6 ფოტო.",
+    "uploadTypeError": "მხოლოდ სურათის ფაილებია დაშვებული.",
+    "uploadSizeError": "თითო ფოტო უნდა იყოს 8MB-ზე ნაკლები.",
+    "submit": "გაგზავნა",
+    "sending": "იგზავნება...",
+    "success": "გმადლობთ. თქვენი შეტყობინება წარმატებით გაიგზავნა.",
+    "error": "გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა."
+  },
+  "pricing": {
+    "rate": "ფასი: $25 თითო მ³-დან"
+  },
+  "quickContact": {
+    "whatsapp": "WhatsApp",
+    "call": "დარეკვა",
+    "whatsappPrefill": "გამარჯობა, მსურს ინტერიერის დიზაინის კონსულტაციის დაჯავშნა."
   },
   "footer": {
     "left": "MAriam Stuido",
-    "right": "2026. All rights reserved."
+    "right": "2026. ყველა უფლება დაცულია.",
+    "source": "პროექტის ფოტოები: Unsplash"
   }
 }

@@ -22,10 +22,22 @@
     "designerText": "Age 22. Building strong skills through recent academy training and design software practice."
   },
   "stats": [
-    { "value": "22", "label": "Age" },
-    { "value": "Beginner", "label": "Experience Level" },
-    { "value": "2", "label": "Completed Courses" },
-    { "value": "3", "label": "Main Programs" }
+    {
+      "value": "22",
+      "label": "Age"
+    },
+    {
+      "value": "Beginner",
+      "label": "Experience Level"
+    },
+    {
+      "value": "2",
+      "label": "Completed Courses"
+    },
+    {
+      "value": "3",
+      "label": "Main Programs"
+    }
   ],
   "about": {
     "eyebrow": "About",
@@ -51,7 +63,11 @@
       }
     ],
     "programsTitle": "Programs",
-    "programs": ["Revit", "3ds Max", "Archicad"]
+    "programs": [
+      "Revit",
+      "3ds Max",
+      "Archicad"
+    ]
   },
   "services": {
     "eyebrow": "Services",
@@ -86,15 +102,39 @@
   },
   "portfolio": {
     "eyebrow": "Portfolio",
-    "title": "Practice project visuals",
-    "text": "A single apartment concept shown from multiple room angles.",
+    "title": "Self-initiated concept visuals",
+    "text": "These interiors are personal imagination-based concept projects created by Mariam Adamashvili to demonstrate her design skills.",
     "projects": [
-      { "title": "Blush Bedroom - Window View", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Blush Bedroom - Main Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Entry Hall - Mirror Console", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Bedroom - Soft Minimal Side", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Bedroom - Wardrobe Elevation", "location": "Tbilisi, Georgia", "type": "Apartment Interior" },
-      { "title": "Living Room - TV Feature Wall", "location": "Tbilisi, Georgia", "type": "Apartment Interior" }
+      {
+        "title": "Riverside Penthouse Living",
+        "location": "Personal concept study (not a real client project)",
+        "type": "Concept showcase"
+      },
+      {
+        "title": "Soft Minimal Bedroom Suite",
+        "location": "Personal concept study (not a real client project)",
+        "type": "Concept showcase"
+      },
+      {
+        "title": "Warm Kitchen Composition",
+        "location": "Personal concept study (not a real client project)",
+        "type": "Concept showcase"
+      },
+      {
+        "title": "Luxury Lounge & Bar Area",
+        "location": "Personal concept study (not a real client project)",
+        "type": "Concept showcase"
+      },
+      {
+        "title": "Natural Light Dining Space",
+        "location": "Personal concept study (not a real client project)",
+        "type": "Concept showcase"
+      },
+      {
+        "title": "Contemporary Family Living Room",
+        "location": "Personal concept study (not a real client project)",
+        "type": "Concept showcase"
+      }
     ]
   },
   "process": {
@@ -164,13 +204,27 @@
     "placeholderEmail": "you@email.com",
     "placeholderType": "Apartment, room redesign, concept...",
     "placeholderMessage": "Tell me about your project",
+    "formImages": "Upload home images (optional)",
+    "formImagesHelp": "Up to 6 images, max 8MB each.",
+    "uploadTooMany": "Please upload up to 6 images.",
+    "uploadTypeError": "Only image files are allowed.",
+    "uploadSizeError": "Each image must be under 8MB.",
     "submit": "Send Inquiry",
     "sending": "Sending...",
     "success": "Thank you. Your message was sent successfully.",
     "error": "Failed to send message. Please try again."
   },
+  "pricing": {
+    "rate": "Starting at $25 per m³"
+  },
+  "quickContact": {
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "whatsappPrefill": "Hello, I want to book an interior design consultation."
+  },
   "footer": {
     "left": "MAriam Stuido",
-    "right": "2026. All rights reserved."
+    "right": "2026. All rights reserved.",
+    "source": "Project photos: Unsplash"
   }
 }
