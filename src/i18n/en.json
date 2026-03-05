@@ -9,7 +9,8 @@
     "contact": "Contact",
     "book": "Book Consultation",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "language": "Language"
   },
   "hero": {
     "eyebrow": "Interior Design",
@@ -19,7 +20,8 @@
     "ctaSecondary": "Start Your Project",
     "designerRole": "Beginner Interior Designer",
     "designerName": "Mariam Adamashvili",
-    "designerText": "Age 22. Building strong skills through recent academy training and design software practice."
+    "designerText": "Age 22. Building strong skills through recent academy training and design software practice.",
+    "designerImageAlt": "Interior designer Mariam"
   },
   "stats": [
     {
@@ -67,7 +69,8 @@
       "Revit",
       "3ds Max",
       "Archicad"
-    ]
+    ],
+    "imageAlt": "Portrait of Mariam Adamashvili"
   },
   "services": {
     "eyebrow": "Services",
@@ -135,7 +138,8 @@
         "location": "Personal concept study (not a real client project)",
         "type": "Concept showcase"
       }
-    ]
+    ],
+    "openProject": "Open {{title}} gallery"
   },
   "process": {
     "eyebrow": "Process",
@@ -228,5 +232,26 @@
     "left": "Mariamo Desiigns",
     "right": "2026. All rights reserved.",
     "source": "Project photos: Unsplash"
+  },
+  "common": {
+    "top": "Top"
+  },
+  "gallery": {
+    "prev": "Prev",
+    "next": "Next",
+    "thumb": "View {{number}}"
+  },
+  "aria": {
+    "skipToContent": "Skip to content",
+    "primaryNavigation": "Primary",
+    "mobileNavigation": "Mobile",
+    "languageSwitcher": "Language switcher",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "closeProject": "Close project gallery",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "backToTop": "Back to top",
+    "quickContact": "Quick contact"
   }
 }

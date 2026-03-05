@@ -1,29 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-const LANG_OPTIONS = [
-  { code: "en", label: "EN" },
-  { code: "ka", label: "KA" },
-  { code: "ru", label: "RU" },
-];
-
-const projectImages = [
-  "/assets/finished/01.jpg",
-  "/assets/finished/02.jpg",
-  "/assets/finished/03.jpg",
-  "/assets/finished/04.jpg",
-  "/assets/finished/05.jpg",
-  "/assets/finished/06.jpg",
-];
-
-const projectGalleryExtras = [
-  ["/assets/project1.jpg", "/assets/project2.jpg"],
-  ["/assets/project2.jpg", "/assets/project4.jpg"],
-  ["/assets/project3.jpg", "/assets/project5.jpg"],
-  ["/assets/project4.jpg", "/assets/project16.jpg"],
-  ["/assets/project5.jpg", "/assets/project1.jpg"],
-  ["/assets/project16.jpg", "/assets/project3.jpg"],
-];
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import ProjectModal from "./components/ProjectModal";
+import SectionHeading from "./components/SectionHeading";
+import { mapProjects } from "./data/projects";
 
 const INITIAL_FORM = {
   name: "",
@@ -32,31 +12,20 @@ const INITIAL_FORM = {
   message: "",
   website: "",
 };
+
 const MAX_UPLOAD_FILES = 6;
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
 const MAX_TOTAL_UPLOAD_SIZE = 10 * 1024 * 1024;
 
-function SectionHeading({ eyebrow, title, text, align = "left" }) {
-  const isCenter = align === "center";
-
-  return (
-    <div className={isCenter ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 className="section-title">{title}</h2>
-      <p className="section-text">{text}</p>
-    </div>
-  );
-}
-
 function scrollToHash(hash, closeMenu) {
   if (!hash?.startsWith("#")) return;
+
   const target = document.querySelector(hash);
   if (!target) return;
 
   closeMenu?.();
 
   const lenis = window.__lenis;
-
   if (lenis && typeof lenis.scrollTo === "function") {
     lenis.scrollTo(target, { offset: -88, duration: 1.05 });
     return;
@@ -76,6 +45,7 @@ function normalizeForm(values) {
 }
 
 export default function App() {
+  const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
   const [activeImage, setActiveImage] = useState("");
@@ -83,16 +53,23 @@ export default function App() {
   const [showTopButton, setShowTopButton] = useState(false);
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [imageFiles, setImageFiles] = useState([]);
-  const [submitState, setSubmitState] = useState("idle");
+  const [submitState, setSubmitState] = useState(() => {
+    if (typeof window === "undefined") return "idle";
+    const params = new URLSearchParams(window.location.search);
+    return params.get("sent") === "1" ? "success" : "idle";
+  });
   const [errorText, setErrorText] = useState("");
-  const fileInputRef = useRef(null);
-  const { t, i18n } = useTranslation();
+
+  const resolvedLang = i18n.resolvedLanguage || "en";
   const phoneText = t("contact.phoneValue");
   const phoneDigits = phoneText.replace(/[^\d]/g, "");
   const phoneHref = `tel:${phoneDigits}`;
   const whatsappHref = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(
-    t("quickContact.whatsappPrefill", { defaultValue: "Hello, I want to book an interior design consultation." })
+    t("quickContact.whatsappPrefill", {
+      defaultValue: "Hello, I want to book an interior design consultation.",
+    })
   )}`;
+
   const nextUrl =
     typeof window !== "undefined"
       ? `${window.location.origin}${window.location.pathname}?sent=1#contact`
@@ -141,29 +118,20 @@ export default function App() {
   }, [t]);
 
   const projects = useMemo(() => {
-    const meta = t("portfolio.projects", { returnObjects: true });
-    const arr = Array.isArray(meta) ? meta : [];
-
-    return projectImages.map((src, idx) => ({
-      id: idx + 1,
-      src,
-      title: arr[idx]?.title || "Project",
-      location: arr[idx]?.location || "Tbilisi, Georgia",
-      type: arr[idx]?.type || "Interior",
-      gallery: [src, ...(projectGalleryExtras[idx] || [])],
-    }));
+    const value = t("portfolio.projects", { returnObjects: true });
+    const meta = Array.isArray(value) ? value : [];
+    return mapProjects(meta);
   }, [t]);
 
   useEffect(() => {
-    document.documentElement.lang = i18n.resolvedLanguage || "en";
-  }, [i18n.resolvedLanguage]);
+    document.documentElement.lang = resolvedLang;
+  }, [resolvedLang]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("sent") !== "1") return;
-
-    setSubmitState("success");
     params.delete("sent");
+
     const query = params.toString();
     const next = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash || ""}`;
     window.history.replaceState({}, "", next);
@@ -183,9 +151,7 @@ export default function App() {
 
   useEffect(() => {
     const sections = ["top", "about", "services", "portfolio", "process", "testimonials", "contact"];
-    const observed = sections
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    const observed = sections.map((id) => document.getElementById(id)).filter(Boolean);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -216,36 +182,17 @@ export default function App() {
     return () => document.body.classList.remove("menu-open");
   }, [menuOpen]);
 
-  const openProject = (project) => {
-    setActiveProject(project);
-    setActiveImage(project.gallery?.[0] || project.src);
-  };
-
-  const changeGalleryImage = (direction) => {
-    if (!activeProject?.gallery?.length) return;
-
-    const gallery = activeProject.gallery;
-    const currentIndex = gallery.indexOf(activeImage || gallery[0]);
-    const safeIndex = currentIndex < 0 ? 0 : currentIndex;
-    const nextIndex =
-      direction === "next"
-        ? (safeIndex + 1) % gallery.length
-        : (safeIndex - 1 + gallery.length) % gallery.length;
-
-    setActiveImage(gallery[nextIndex]);
-  };
-
   useEffect(() => {
     if (!activeProject) return;
 
     const onKey = (event) => {
-      if (event.key === "ArrowRight") changeGalleryImage("next");
-      if (event.key === "ArrowLeft") changeGalleryImage("prev");
+      if (event.key === "ArrowRight") setActiveImage((current) => cycleImage("next", current, activeProject.gallery));
+      if (event.key === "ArrowLeft") setActiveImage((current) => cycleImage("prev", current, activeProject.gallery));
     };
 
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [activeProject, activeImage]);
+  }, [activeProject]);
 
   const setLang = (lang) => {
     i18n.changeLanguage(lang);
@@ -322,7 +269,7 @@ export default function App() {
     }
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const values = normalizeForm(formData);
@@ -332,15 +279,36 @@ export default function App() {
       return;
     }
 
+    if (!imageFiles.every((file) => file.type.startsWith("image/"))) {
+      setSubmitState("error");
+      setErrorText(t("contact.uploadTypeError", { defaultValue: "Only image files are allowed." }));
+      return;
+    }
+
     setSubmitState("loading");
     setErrorText("");
     event.currentTarget.submit();
   };
 
+  const openProject = (project) => {
+    setActiveProject(project);
+    setActiveImage(project.gallery?.[0] || project.src);
+  };
+
+  const showPrevImage = () => {
+    if (!activeProject?.gallery?.length) return;
+    setActiveImage((current) => cycleImage("prev", current, activeProject.gallery));
+  };
+
+  const showNextImage = () => {
+    if (!activeProject?.gallery?.length) return;
+    setActiveImage((current) => cycleImage("next", current, activeProject.gallery));
+  };
+
   return (
     <div className="site-shell">
       <a href="#content" className="skip-link">
-        Skip to content
+        {t("aria.skipToContent")}
       </a>
 
       <header className="site-header" role="banner">
@@ -349,7 +317,7 @@ export default function App() {
             {t("brand")}
           </a>
 
-          <nav className="desktop-nav" aria-label="Primary">
+          <nav className="desktop-nav" aria-label={t("aria.primaryNavigation")}>
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -362,32 +330,21 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="lang-switch desktop-lang" role="group" aria-label="Language switcher">
-            {LANG_OPTIONS.map((item) => (
-              <button
-                key={item.code}
-                type="button"
-                className={i18n.resolvedLanguage === item.code ? "lang-btn active" : "lang-btn"}
-                onClick={() => setLang(item.code)}
-                aria-pressed={i18n.resolvedLanguage === item.code}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+          <LanguageSwitcher
+            currentLang={resolvedLang}
+            onChange={setLang}
+            className="desktop-lang"
+            ariaLabel={t("aria.languageSwitcher")}
+          />
 
-          <a
-            href="#contact"
-            className="cta-pill desktop-cta"
-            onClick={(e) => handleNavClick(e, "#contact")}
-          >
+          <a href="#contact" className="cta-pill desktop-cta" onClick={(e) => handleNavClick(e, "#contact")}>
             {t("nav.book")}
           </a>
 
           <button
             type="button"
             className={`menu-button ${menuOpen ? "is-open" : ""}`}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? t("aria.closeMenu") : t("aria.openMenu")}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((value) => !value)}
@@ -410,7 +367,7 @@ export default function App() {
               type="button"
               className="mobile-backdrop"
               onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
+              aria-label={t("aria.closeMenu")}
             />
             <aside
               className="mobile-drawer"
@@ -419,7 +376,7 @@ export default function App() {
               aria-modal="true"
               data-lenis-prevent
             >
-              <nav className="mobile-nav-links" aria-label="Mobile">
+              <nav className="mobile-nav-links" aria-label={t("aria.mobileNavigation")}>
                 {navItems.map((item) => (
                   <a
                     key={item.href}
@@ -433,20 +390,13 @@ export default function App() {
               </nav>
 
               <div className="mobile-lang-wrap">
-                <p>Language</p>
-                <div className="lang-switch mobile-lang" role="group" aria-label="Language switcher">
-                  {LANG_OPTIONS.map((item) => (
-                    <button
-                      key={item.code}
-                      type="button"
-                      className={i18n.resolvedLanguage === item.code ? "lang-btn active" : "lang-btn"}
-                      onClick={() => setLang(item.code)}
-                      aria-pressed={i18n.resolvedLanguage === item.code}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
+                <p>{t("nav.language")}</p>
+                <LanguageSwitcher
+                  currentLang={resolvedLang}
+                  onChange={setLang}
+                  className="mobile-lang"
+                  ariaLabel={t("aria.languageSwitcher")}
+                />
               </div>
 
               <a href="#contact" className="cta-pill mobile-cta" onClick={(e) => handleNavClick(e, "#contact")}>
@@ -479,7 +429,7 @@ export default function App() {
             <div className="hero-card">
               <img
                 src="/assets/mariam.jpg"
-                alt="Interior designer Mariam"
+                alt={t("hero.designerImageAlt")}
                 width="1200"
                 height="900"
                 loading="eager"
@@ -548,7 +498,7 @@ export default function App() {
             <figure className="about-visual">
               <img
                 src="/assets/mariam2.jpg"
-                alt="Designer portrait"
+                alt={t("about.imageAlt")}
                 width="900"
                 height="1125"
                 loading="lazy"
@@ -585,7 +535,7 @@ export default function App() {
                   key={`${item.title}-${idx}`}
                   className={`project-card project-card-btn ${idx === 0 ? "project-wide" : ""}`}
                   onClick={() => openProject(item)}
-                  aria-label={`${item.title} gallery`}
+                  aria-label={t("portfolio.openProject", { title: item.title })}
                 >
                   <img
                     src={item.src}
@@ -652,9 +602,11 @@ export default function App() {
                   {t("contact.email")}: <a href={`mailto:${t("contact.emailValue")}`}>{t("contact.emailValue")}</a>
                 </li>
                 <li>
-                  {t("contact.phone")}: <a href={`tel:${t("contact.phoneValue").replace(/\s+/g, "")}`}>{t("contact.phoneValue")}</a>
+                  {t("contact.phone")}: <a href={`tel:${phoneDigits}`}>{t("contact.phoneValue")}</a>
                 </li>
-                <li>{t("contact.location")}: {t("contact.locationValue")}</li>
+                <li>
+                  {t("contact.location")}: {t("contact.locationValue")}
+                </li>
               </ul>
             </div>
 
@@ -670,6 +622,7 @@ export default function App() {
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_next" value={nextUrl} />
+
               <label className="honeypot" aria-hidden="true">
                 Website
                 <input
@@ -737,11 +690,19 @@ export default function App() {
                 <input
                   type="file"
                   name="attachment"
-                  ref={fileInputRef}
+                  className="file-input"
                   accept="image/*"
                   multiple
                   onChange={onImagesChange}
                 />
+                <small className="file-selected" aria-live="polite">
+                  {imageFiles.length
+                    ? t("contact.filesSelected", {
+                        count: imageFiles.length,
+                        defaultValue: `${imageFiles.length} file(s) selected`,
+                      })
+                    : t("contact.noFilesSelected", { defaultValue: "No files selected yet." })}
+                </small>
                 <small className="file-help">
                   {t("contact.formImagesHelp", {
                     defaultValue: "Up to 6 images, max 8MB each.",
@@ -764,81 +725,26 @@ export default function App() {
         </section>
       </main>
 
-      {activeProject && (
-        <div className="project-modal-wrap" role="dialog" aria-modal="true" aria-label={activeProject.title}>
-          <button
-            type="button"
-            className="project-modal-backdrop"
-            aria-label="Close project gallery"
-            onClick={() => setActiveProject(null)}
-          />
-          <div className="project-modal" data-lenis-prevent>
-            <div className="project-modal-head">
-              <div>
-                <p>{activeProject.type}</p>
-                <h3>{activeProject.title}</h3>
-                <span>{activeProject.location}</span>
-              </div>
-              <button type="button" className="project-modal-close" onClick={() => setActiveProject(null)}>
-                Close
-              </button>
-            </div>
-
-            <div className="project-modal-image-wrap">
-              <button
-                type="button"
-                className="project-nav prev"
-                onClick={() => changeGalleryImage("prev")}
-                aria-label="Previous image"
-              >
-                Prev
-              </button>
-              <img
-                src={activeImage || activeProject.src}
-                alt={activeProject.title}
-                className="project-modal-main"
-                loading="eager"
-              />
-              <button
-                type="button"
-                className="project-nav next"
-                onClick={() => changeGalleryImage("next")}
-                aria-label="Next image"
-              >
-                Next
-              </button>
-            </div>
-
-            <div className="project-modal-thumbs">
-              {activeProject.gallery.map((imageSrc, index) => (
-                <button
-                  type="button"
-                  key={`${imageSrc}-${index}`}
-                  className={activeImage === imageSrc ? "thumb is-active" : "thumb"}
-                  onClick={() => setActiveImage(imageSrc)}
-                >
-                  <img src={imageSrc} alt={`${activeProject.title} view ${index + 1}`} loading="lazy" />
-                </button>
-              ))}
-            </div>
-            <p className="project-modal-count">
-              {(activeProject.gallery.indexOf(activeImage || activeProject.gallery[0]) + 1).toString()} /{" "}
-              {activeProject.gallery.length.toString()}
-            </p>
-          </div>
-        </div>
-      )}
+      <ProjectModal
+        activeProject={activeProject}
+        activeImage={activeImage}
+        onClose={() => setActiveProject(null)}
+        onNext={showNextImage}
+        onPrev={showPrevImage}
+        onThumbSelect={setActiveImage}
+        t={t}
+      />
 
       <button
         type="button"
         className={`back-to-top ${showTopButton ? "show" : ""}`}
         onClick={(e) => handleNavClick(e, "#top")}
-        aria-label="Back to top"
+        aria-label={t("aria.backToTop")}
       >
-        Top
+        {t("common.top")}
       </button>
 
-      <div className="quick-contact" aria-label="Quick contact">
+      <div className="quick-contact" aria-label={t("aria.quickContact")}>
         <a href={whatsappHref} className="quick-pill whatsapp" target="_blank" rel="noreferrer">
           {t("quickContact.whatsapp", { defaultValue: "WhatsApp" })}
         </a>
@@ -860,4 +766,16 @@ export default function App() {
       </footer>
     </div>
   );
+}
+
+function cycleImage(direction, currentImage, gallery) {
+  const currentIndex = gallery.indexOf(currentImage || gallery[0]);
+  const safeIndex = currentIndex < 0 ? 0 : currentIndex;
+
+  const nextIndex =
+    direction === "next"
+      ? (safeIndex + 1) % gallery.length
+      : (safeIndex - 1 + gallery.length) % gallery.length;
+
+  return gallery[nextIndex];
 }

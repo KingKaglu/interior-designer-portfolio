@@ -1,11 +1,11 @@
-﻿import i18n from "i18next";
+import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 import en from "./en.json";
 import ka from "./ka.json";
 import ru from "./ru.json";
 
-const saved = localStorage.getItem("lang");
+const saved = typeof window !== "undefined" ? window.localStorage.getItem("lang") : null;
 
 i18n.use(initReactI18next).init({
   resources: {

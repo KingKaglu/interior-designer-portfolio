@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@500;600;700&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   --bg: #f4efe8;
@@ -397,7 +394,7 @@ img {
 .mobile-cta {
   display: block;
   width: 100%;
-  margin-top: 1.6rem;
+  margin-top: 1.25rem;
   text-align: center;
   border-radius: 0.78rem;
   padding: 0.92rem 0.9rem;
@@ -479,15 +476,16 @@ img {
 .hero-title,
 .section-title {
   font-family: "Cormorant Garamond", serif;
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: 0.01em;
   margin: 0.9rem 0 0;
+  text-wrap: balance;
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 6.5vw, 5rem);
-  max-width: 13ch;
-  overflow-wrap: anywhere;
+  font-size: clamp(2.25rem, 5.8vw, 4.5rem);
+  max-width: 12ch;
+  overflow-wrap: break-word;
 }
 
 .hero-copy,
@@ -602,6 +600,16 @@ img {
   max-width: 16ch;
 }
 
+.section-heading {
+  max-width: 42rem;
+}
+
+.section-heading.is-center {
+  margin-inline: auto;
+  max-width: 48rem;
+  text-align: center;
+}
+
 .section-text {
   margin-top: 1rem;
 }
@@ -610,13 +618,13 @@ img {
 :lang(ka) .section-title {
   font-family: "Noto Serif Georgian", "Cormorant Garamond", serif;
   letter-spacing: 0;
-  line-height: 1.18;
+  line-height: 1.12;
   font-weight: 600;
 }
 
 :lang(ka) .hero-title {
-  font-size: clamp(1.85rem, 4.8vw, 3.95rem);
-  max-width: 16ch;
+  font-size: clamp(1.78rem, 4.2vw, 3.45rem);
+  max-width: 14ch;
   text-wrap: balance;
 }
 
@@ -925,9 +933,47 @@ img {
 }
 
 .contact-form input[type="file"] {
-  padding: 0.55rem 0.7rem;
+  padding: 0.45rem 0.55rem;
   background: #fff;
   cursor: pointer;
+  border-style: dashed;
+}
+
+.file-input {
+  color: var(--muted);
+}
+
+.file-input::file-selector-button {
+  margin-right: 0.7rem;
+  border: 1px solid rgba(130, 113, 95, 0.35);
+  background: linear-gradient(180deg, #b56e58, #9d5f4b);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.file-input:hover::file-selector-button {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(84, 46, 35, 0.2);
+  background: linear-gradient(180deg, #a96450, #8e5442);
+}
+
+.file-input:focus-within::file-selector-button {
+  outline: 2px solid rgba(164, 96, 77, 0.35);
+  outline-offset: 2px;
+}
+
+.file-selected {
+  display: block;
+  margin-top: 0.05rem;
+  color: var(--accent-dark);
+  font-size: 0.76rem;
+  font-weight: 600;
 }
 
 .file-help {
@@ -1278,7 +1324,7 @@ img {
   }
 
   .hero-title {
-    max-width: 100%;
+    max-width: 13ch;
   }
 
   .mobile-overlay {
@@ -1314,7 +1360,7 @@ img {
   }
 
   .mobile-cta {
-    margin-top: 1.35rem;
+    margin-top: 1.15rem;
     padding: 0.84rem 0.7rem;
     font-size: 0.86rem;
     border-radius: 0.72rem;
