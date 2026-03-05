@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const LANG_OPTIONS = [
@@ -34,6 +34,7 @@ const INITIAL_FORM = {
 };
 const MAX_UPLOAD_FILES = 6;
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
+const MAX_TOTAL_UPLOAD_SIZE = 10 * 1024 * 1024;
 
 function SectionHeading({ eyebrow, title, text, align = "left" }) {
   const isCenter = align === "center";
@@ -84,6 +85,7 @@ export default function App() {
   const [imageFiles, setImageFiles] = useState([]);
   const [submitState, setSubmitState] = useState("idle");
   const [errorText, setErrorText] = useState("");
+  const fileInputRef = useRef(null);
   const { t, i18n } = useTranslation();
   const phoneText = t("contact.phoneValue");
   const phoneDigits = phoneText.replace(/[^\d]/g, "");
@@ -286,6 +288,18 @@ export default function App() {
       return;
     }
 
+    const totalSize = selected.reduce((sum, file) => sum + file.size, 0);
+    if (totalSize > MAX_TOTAL_UPLOAD_SIZE) {
+      setSubmitState("error");
+      setErrorText(
+        t("contact.uploadTotalSizeError", {
+          defaultValue: "Total upload size must be under 10MB.",
+        })
+      );
+      event.target.value = "";
+      return;
+    }
+
     setImageFiles(selected);
     if (submitState !== "idle") {
       setSubmitState("idle");
@@ -321,7 +335,7 @@ export default function App() {
     payload.append("_subject", "New interior design inquiry");
     payload.append("_captcha", "false");
     payload.append("_template", "table");
-    imageFiles.forEach((file) => payload.append("attachment[]", file, file.name));
+    imageFiles.forEach((file) => payload.append("attachment", file, file.name));
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 12000);
@@ -339,6 +353,7 @@ export default function App() {
         setSubmitState("success");
         setFormData(INITIAL_FORM);
         setImageFiles([]);
+        if (fileInputRef.current) fileInputRef.current.value = "";
       } else {
         setSubmitState("error");
         setErrorText(data?.message || t("contact.error", { defaultValue: "Failed to send message. Please try again." }));
@@ -742,6 +757,7 @@ export default function App() {
                 <input
                   type="file"
                   name="images"
+                  ref={fileInputRef}
                   accept="image/*"
                   multiple
                   onChange={onImagesChange}
