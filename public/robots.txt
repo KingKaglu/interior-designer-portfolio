@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mariamstudio.com/sitemap.xml
+Sitemap: https://mariamodesignes.com/sitemap.xml
