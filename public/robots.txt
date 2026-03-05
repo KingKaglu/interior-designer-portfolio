@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://interior-designer-portfolio-xi.vercel.app/sitemap.xml
+Sitemap: https://mariamo-desiigns.vercel.app/sitemap.xml
